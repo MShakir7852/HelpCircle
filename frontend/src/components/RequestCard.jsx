@@ -1,0 +1,10 @@
+import { MapPin, Clock3, MessageCircle, ArrowUpRight, Sparkles } from 'lucide-react'
+export default function RequestCard({ request }) {
+  return <article className="surface flex h-full flex-col rounded-3xl p-5 transition duration-200 hover:-translate-y-1 hover:shadow-lg sm:p-6">
+    <div className="flex items-center justify-between gap-3"><span className={`rounded-full px-3 py-1.5 text-xs font-bold ${request.color}`}>{request.category}</span><span className="inline-flex items-center gap-1.5 rounded-full bg-[#f0f8f3] px-3 py-1.5 text-xs font-semibold text-[#26745d]"><span className="h-1.5 w-1.5 rounded-full bg-[#35a477]"/>{request.urgency}</span></div>
+    <h3 className="mt-5 font-display text-lg font-extrabold leading-7 tracking-[-.025em] text-[#15332e]">{request.title}</h3><p className="mt-2 line-clamp-3 text-sm leading-6 text-slate-500">{request.description}</p>
+    <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-xs text-slate-500"><span className="inline-flex items-center gap-1.5"><MapPin size={14}/>{request.location}</span><span className="inline-flex items-center gap-1.5"><Clock3 size={14}/>{request.time}</span></div>
+    <div className="my-5 h-px bg-slate-100"/><div className="mt-auto flex items-center justify-between gap-3"><div className="flex min-w-0 items-center gap-2.5"><span className={`grid h-9 w-9 shrink-0 place-items-center rounded-full text-xs font-extrabold ${request.color}`}>{request.initials}</span><div className="min-w-0"><p className="truncate text-sm font-bold text-slate-700">{request.name}</p><p className="text-xs text-slate-400">Community member</p></div></div><span className="inline-flex shrink-0 items-center gap-1.5 text-xs font-semibold text-slate-500"><MessageCircle size={15}/>{request.replies} replies</span></div>
+    <button onClick={() => window.location.href = `/login?next=/explore`} className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#dce9e0] py-3 text-sm font-bold text-[#176b56] transition hover:border-[#176b56] hover:bg-[#f0f8f3]">View request <ArrowUpRight size={16}/></button>
+  </article>
+}

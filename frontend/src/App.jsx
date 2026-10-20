@@ -1,15 +1,10 @@
-// import { useState } from 'react'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import MainLayout from './layouts/MainLayout'
+import Home from './pages/Home'
+import Explore from './pages/Explore'
+import CreateRequest from './pages/CreateRequest'
+import Auth from './pages/Auth'
 
-import './App.css'
-
-function App() {
-
-
-  return (
-    <>
-      <h1 className='bg-blue-300 text-red-700 font-bold text-5xl text-center'>hi</h1>
-    </>
-  )
+export default function App() {
+  return <Routes><Route element={<MainLayout/>}><Route index element={<Home/>}/><Route path="explore" element={<Explore/>}/><Route path="create-request" element={<CreateRequest/>}/><Route path="login" element={<Auth mode="login"/>}/><Route path="register" element={<Auth mode="register"/>}/><Route path="*" element={<Navigate to="/" replace/>}/></Route></Routes>
 }
-
-export default App

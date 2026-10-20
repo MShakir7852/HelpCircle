@@ -1,0 +1,9 @@
+import { Link } from 'react-router-dom'
+import { HeartHandshake, ArrowUpRight, Heart } from 'lucide-react'
+export default function Footer() {
+  return <footer className="mt-20 bg-[#0b2825] text-white"><div className="container-shell grid gap-10 py-12 md:grid-cols-[1.5fr_1fr_1fr] md:py-16">
+    <div><Link to="/" className="inline-flex items-center gap-2.5"><span className="grid h-10 w-10 place-items-center rounded-2xl bg-[#c9f7df] text-[#0b2825]"><HeartHandshake size={22}/></span><span className="font-display text-xl font-extrabold">helpcircle.</span></Link><p className="mt-4 max-w-sm text-sm leading-6 text-white/65">Good neighbours make stronger communities. Find support, share your skills, and make a difference close to home.</p></div>
+    <div><p className="font-bold">Explore</p><div className="mt-4 flex flex-col gap-3 text-sm text-white/65"><Link className="hover:text-white" to="/explore">Browse requests</Link><Link className="hover:text-white" to="/create-request">Post a request</Link><Link className="hover:text-white" to="/register">Join the community</Link></div></div>
+    <div><p className="font-bold">A little help goes a long way.</p><p className="mt-4 text-sm leading-6 text-white/65">Start with one kind action. Your community is better with you in it.</p><Link to="/explore" className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#c9f7df]">Find a way to help <ArrowUpRight size={16}/></Link></div>
+    </div><div className="border-t border-white/10"><div className="container-shell flex flex-col gap-2 py-5 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between"><span>© {new Date().getFullYear()} HelpCircle. Built for stronger communities.</span><span className="inline-flex items-center gap-1">Made with <Heart size={12} className="fill-[#c9f7df] text-[#c9f7df]"/> for neighbours</span></div></div></footer>
+}

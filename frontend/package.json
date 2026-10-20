@@ -1,29 +1,9 @@
 {
-  "name": "frontend",
+  "name": "helpcircle-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "oxlint",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@tailwindcss/vite": "^4.3.3",
-    "axios": "^1.20.0",
-    "lucide-react": "^1.59.0",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
-    "react-router-dom": "^7.18.4",
-    "sonner": "^2.0.8",
-    "tailwindcss": "^4.3.3"
-  },
-  "devDependencies": {
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.7",
-    "@vitejs/plugin-react": "^6.1.1",
-    "oxlint": "^1.81.0",
-    "vite": "^8.3.0"
-  }
+  "scripts": { "dev": "vite", "build": "vite build", "preview": "vite preview" },
+  "dependencies": { "@vitejs/plugin-react": "latest", "@tailwindcss/vite": "latest", "axios": "^1.7.9", "lucide-react": "^0.468.0", "react": "^18.3.1", "react-dom": "^18.3.1", "react-router-dom": "^6.28.1", "sonner": "^1.7.1", "tailwindcss": "^4.0.0", "vite": "^6.0.5" },
+  "devDependencies": {}
 }

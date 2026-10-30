@@ -110,96 +110,10 @@ HelpCircle/
 
 ### 1. Backend
 
-```bash
-cd backend
-npm install
-```
-
-Copy `.env.example` to `.env`, then set a strong private `JWT_SECRET` and your MongoDB URI:
-
-```env
-PORT=3000
-MONGODB_URI=mongodb://127.0.0.1:27017/helpcircle
-JWT_SECRET=use_a_long_random_secret_here
-JWT_EXPIRES_IN=7d
-CLIENT_URL=http://localhost:5173
-MATCH_RADIUS_METERS=15000
-```
-
-Start the API:
-
-```bash
-npm run dev
-```
-
-The API runs at `http://localhost:3000`; test `http://localhost:3000/api/health`.
-
-### 2. Frontend
-
-In a second terminal:
-
-```bash
-cd frontend
-npm install
-```
-
-Create `frontend/.env`:
-
-```env
-VITE_API_URL=http://localhost:3000/api
-```
-
-Start Vite:
-
-```bash
-npm run dev
-```
-
-Open `http://localhost:5173`.
 
 ## API reference
 
-### Authentication
 
-| Method | Endpoint | Access | Description |
-|---|---|---|---|
-| POST | `/api/auth/register` | Public | Create customer/provider account |
-| POST | `/api/auth/login` | Public | Login and receive JWT |
-| GET | `/api/auth/me` | Authenticated | Current user |
-| PATCH | `/api/auth/profile` | Authenticated | Update profile/provider setup |
-
-Send authenticated requests with `Authorization: Bearer <token>`.
-
-### Help requests
-
-| Method | Endpoint | Access | Description |
-|---|---|---|---|
-| GET | `/api/requests` | Public | Search/filter open requests; supports `q`, `category`, `urgency`, `area`, `status`, `page`, `limit` |
-| GET | `/api/requests/:id` | Public | Request details |
-| POST | `/api/requests` | Customer | Create a request and match nearby providers |
-| GET | `/api/requests/mine` | Customer | Current user's requests |
-| GET | `/api/requests/provider` | Provider | Matched/assigned requests |
-| GET | `/api/requests/nearby-providers?lat=&lng=&serviceType=` | Public | Find nearby available providers |
-| POST | `/api/requests/:id/accept` | Matched provider | Accept an open request |
-| PATCH | `/api/requests/:id/status` | Owner/assigned provider | Start, complete or cancel eligible request |
-| DELETE | `/api/requests/:id` | Owner/admin | Delete an open/cancelled request |
-
-### Request payload example
-
-```json
-{
-  "title": "Need an AC technician for a home visit",
-  "category": "Home repairs",
-  "serviceType": "AC repair",
-  "description": "My AC is running but not cooling. Please inspect the unit.",
-  "area": "Model Town",
-  "urgency": "Today",
-  "location": {
-    "type": "Point",
-    "coordinates": [74.3436, 31.4821]
-  }
-}
-```
 
 The browser asks the user for location permission on the create-request screen. Location is required for proximity matching. Use HTTPS in production; browsers generally restrict geolocation to secure origins (localhost is allowed for development).
 

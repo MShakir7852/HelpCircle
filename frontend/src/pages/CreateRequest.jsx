@@ -2,10 +2,16 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, HeartHandshake, Info, MapPin, LocateFixed, LoaderCircle, ShieldCheck, CheckCircle2 } from 'lucide-react'
 import { toast } from 'sonner'
+<<<<<<< HEAD
 import axios from 'axios'
 import { categories } from '../data'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api'
+=======
+import api from '../api/client'
+import { categories } from '../data'
+
+>>>>>>> e015e11 (first commit)
 const initialForm = { title: '', category: '', serviceType: '', description: '', area: '', urgency: 'Today' }
 const field = 'mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-[#17342f] outline-none transition placeholder:text-slate-400 focus:border-[#16836e] focus:ring-4 focus:ring-[#16836e]/10'
 
@@ -57,11 +63,19 @@ export default function CreateRequest() {
     }
     setSubmitting(true)
     try {
+<<<<<<< HEAD
       const response = await axios.post(`${API_URL}/requests`, {
         ...form,
         location: { type: 'Point', coordinates: location.coordinates },
       })
       const matches = response.data?.matches?.length
+=======
+      const response = await api.post('/requests', {
+        ...form,
+        location: { type: 'Point', coordinates: location.coordinates },
+      })
+      const matches = response.data?.matchesCount || 0
+>>>>>>> e015e11 (first commit)
       toast.success(matches ? `Request created. ${matches} nearby provider(s) matched.` : 'Request created successfully. We will notify matching providers.')
       navigate('/explore')
     } catch (error) {

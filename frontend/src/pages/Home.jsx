@@ -1,19 +1,34 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { ArrowRight, ArrowUpRight, Search, ShieldCheck, HeartHandshake, Users, Sparkles, CircleCheck, HandHeart, MapPin, HeartPulse } from 'lucide-react'
 import { useState } from 'react'
+<<<<<<< HEAD
 import { categories, requests } from '../data'
+=======
+import { categories } from '../data'
+import api from '../api/client'
+import { useEffect } from 'react'
+>>>>>>> e015e11 (first commit)
 import CategoryCard from '../components/CategoryCard'
 import RequestCard from '../components/RequestCard'
 import { toast } from 'sonner'
 
 export default function Home() {
   const [query, setQuery] = useState('')
+<<<<<<< HEAD
+=======
+  const [recent, setRecent] = useState([])
+  useEffect(() => { api.get('/requests', { params: { status: 'Open', limit: 3 } }).then(r => setRecent(r.data.requests)).catch(() => setRecent([])) }, [])
+>>>>>>> e015e11 (first commit)
   const navigate = useNavigate()
   const search = (e) => { e.preventDefault(); navigate(`/explore${query.trim() ? `?q=${encodeURIComponent(query.trim())}` : ''}`) }
   const categorySelect = (name) => navigate(`/explore?category=${encodeURIComponent(name)}`)
   return <>
     <section className="relative isolate overflow-hidden bg-[#0b2825] text-white"><div className="soft-grid absolute inset-0 -z-10 opacity-50"/><div className="absolute -right-24 -top-36 -z-10 h-[460px] w-[460px] rounded-full bg-[#1d6e59]/35 blur-3xl"/><div className="absolute -bottom-48 left-1/3 -z-10 h-[420px] w-[420px] rounded-full bg-[#b0e9c9]/10 blur-3xl"/>
+<<<<<<< HEAD
       <div className="container-shell grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-[1.12fr_.88fr] lg:gap-10 lg:py-24"/><div>
+=======
+      <div className="container-shell grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-[1.12fr_.88fr] lg:gap-10 lg:py-24"><div>
+>>>>>>> e015e11 (first commit)
         <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[.07] px-3.5 py-2 text-xs font-semibold tracking-wide text-[#d1f7df]"><Sparkles size={14}/> SMALL ACTS. STRONGER COMMUNITIES.</div>
         <h1 className="mt-7 max-w-2xl font-display text-[clamp(2.8rem,6vw,5.35rem)] font-extrabold leading-[1.04] tracking-[-.065em]">A little help can <span className="relative whitespace-nowrap text-[#baf1d1]">go a long way.</span></h1>
         <p className="mt-6 max-w-xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">Find trusted local support, share what you know, and make everyday challenges easier — together with the people around you.</p>
@@ -24,11 +39,19 @@ export default function Home() {
         <div className="space-y-3"><div className="rounded-2xl bg-white p-4 text-[#17342f]"><div className="flex items-start gap-3"><span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-orange-50 text-orange-600"><span className="text-xl">🔧</span></span><div className="min-w-0 flex-1"><div className="flex flex-wrap items-center gap-2"><span className="text-xs font-bold text-[#278363]">HOME REPAIR</span><span className="rounded-full bg-orange-50 px-2 py-1 text-[10px] font-bold text-orange-700">NEEDS HELP</span></div><p className="mt-1 font-display text-sm font-extrabold">A neighbour needs a hand with a tap</p><p className="mt-1 text-xs text-slate-500">Model Town · Recently posted</p></div></div><div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3"><div className="flex -space-x-2"><span className="grid h-7 w-7 place-items-center rounded-full border-2 border-white bg-emerald-100 text-[10px] font-bold">AK</span><span className="grid h-7 w-7 place-items-center rounded-full border-2 border-white bg-sky-100 text-[10px] font-bold">HR</span><span className="grid h-7 w-7 place-items-center rounded-full border-2 border-white bg-violet-100 text-[10px] font-bold">SM</span></div><span className="text-xs font-bold text-[#278363]">Neighbours can help <ArrowUpRight size={13} className="inline"/></span></div></div>
           <div className="grid grid-cols-2 gap-3"><div className="rounded-2xl border border-white/10 bg-[#163b34] p-4"><span className="grid h-9 w-9 place-items-center rounded-xl bg-[#baf1d1]/15 text-[#baf1d1]"><Users size={18}/></span><p className="mt-4 font-display text-lg font-extrabold">People first</p><p className="mt-1 text-xs leading-5 text-white/60">Real connections, built locally.</p></div><div className="rounded-2xl border border-white/10 bg-[#163b34] p-4"><span className="grid h-9 w-9 place-items-center rounded-xl bg-[#baf1d1]/15 text-[#baf1d1]"><HandHeart size={18}/></span><p className="mt-4 font-display text-lg font-extrabold">Give or receive</p><p className="mt-1 text-xs leading-5 text-white/60">Everyone has something to share.</p></div></div>
         </div><div className="absolute -bottom-5 -left-5 hidden items-center gap-3 rounded-2xl bg-white p-3.5 text-[#17342f] shadow-xl sm:flex"><span className="grid h-10 w-10 place-items-center rounded-xl bg-rose-50 text-rose-600"><HeartPulse size={20}/></span><div><p className="text-xs font-extrabold">Kindness lives nearby</p><p className="mt-0.5 text-[11px] text-slate-500">One community, many ways to help</p></div><CircleCheck className="ml-2 text-emerald-600" size={19}/></div></div></div>
+<<<<<<< HEAD
+=======
+      </div>
+>>>>>>> e015e11 (first commit)
     </section>
     <section className="container-shell py-16 sm:py-20"><div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p className="text-xs font-extrabold uppercase tracking-[.18em] text-[#16836e]">Find your kind of help</p><h2 className="mt-3 font-display text-3xl font-extrabold tracking-[-.045em] text-[#12312b] sm:text-4xl">What can we help with?</h2><p className="mt-3 max-w-xl text-sm leading-6 text-slate-500 sm:text-base">From a quick repair to a little extra support, start with what you need.</p></div><Link to="/explore" className="inline-flex items-center gap-2 self-start text-sm font-bold text-[#16765f] hover:text-[#0b2825] sm:self-auto">Explore all categories <ArrowRight size={16}/></Link></div>
       <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">{categories.map(category => <CategoryCard key={category.name} category={category} onSelect={categorySelect}/>)}</div>
     </section>
+<<<<<<< HEAD
     <section className="border-y border-[#e8ece7] bg-white/60 py-16 sm:py-20"><div className="container-shell"><div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p className="text-xs font-extrabold uppercase tracking-[.18em] text-[#16836e]">Community board</p><h2 className="mt-3 font-display text-3xl font-extrabold tracking-[-.045em] text-[#12312b] sm:text-4xl">Neighbours helping neighbours.</h2><p className="mt-3 text-sm leading-6 text-slate-500 sm:text-base">A preview of the kinds of requests a community can share.</p></div><Link to="/explore" className="inline-flex items-center gap-2 self-start rounded-full border border-[#dce9e0] bg-white px-4 py-2.5 text-sm font-bold text-[#176b56] hover:bg-[#f0f8f3] sm:self-auto">See all requests <ArrowRight size={16}/></Link></div><div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">{requests.slice(0,3).map(request => <RequestCard key={request.id} request={request}/>)}</div></div></section>
+=======
+    <section className="border-y border-[#e8ece7] bg-white/60 py-16 sm:py-20"><div className="container-shell"><div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p className="text-xs font-extrabold uppercase tracking-[.18em] text-[#16836e]">Community board</p><h2 className="mt-3 font-display text-3xl font-extrabold tracking-[-.045em] text-[#12312b] sm:text-4xl">Neighbours helping neighbours.</h2><p className="mt-3 text-sm leading-6 text-slate-500 sm:text-base">A preview of the kinds of requests a community can share.</p></div><Link to="/explore" className="inline-flex items-center gap-2 self-start rounded-full border border-[#dce9e0] bg-white px-4 py-2.5 text-sm font-bold text-[#176b56] hover:bg-[#f0f8f3] sm:self-auto">See all requests <ArrowRight size={16}/></Link></div><div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">{recent.map(request => <RequestCard key={request._id} request={request}/>)}{!recent.length && <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-sm text-slate-500 md:col-span-2 xl:col-span-3">No community requests yet. Be the first to ask for help or offer support.</div>}</div></div></section>
+>>>>>>> e015e11 (first commit)
     <section className="container-shell py-16 sm:py-20"><div className="relative overflow-hidden rounded-[2rem] bg-[#dff7e9] p-7 sm:p-10 lg:p-12"><div className="absolute -right-16 -top-24 h-64 w-64 rounded-full border-[35px] border-white/40"/><div className="relative flex flex-col justify-between gap-8 md:flex-row md:items-center"><div className="max-w-2xl"><span className="inline-flex items-center gap-2 rounded-full bg-white/75 px-3 py-1.5 text-xs font-bold text-[#176b56]"><HeartHandshake size={14}/> YOUR COMMUNITY NEEDS YOU</span><h2 className="mt-4 font-display text-3xl font-extrabold tracking-[-.05em] text-[#0b2825] sm:text-4xl">You don't have to do everything. Just something.</h2><p className="mt-3 max-w-xl text-sm leading-6 text-[#42665a] sm:text-base">Offer a skill, answer a request, or ask for the support you need. Every small act can make a neighbourhood stronger.</p></div><div className="flex shrink-0 flex-col gap-3 sm:flex-row"><Link to="/register" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0b2825] px-6 py-3.5 text-sm font-bold text-white hover:bg-[#16463d]">Join HelpCircle <ArrowUpRight size={16}/></Link><Link to="/create-request" className="inline-flex items-center justify-center rounded-full border border-[#a9d9bf] bg-white/70 px-6 py-3.5 text-sm font-bold text-[#0b2825] hover:bg-white">Ask for help</Link></div></div></div></section>
   </>
 }
